@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <title>QApp</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+</head>
+
+<body ng-controller="QappCtrl">
+<div id="main">
+  <div id="header">
+    <h1>QApp</h1>
+    <h2>a general assembly <span>Class 3</span> production</h2>
+  </div>
+
+  <div id="left">
+    <form ng-submit="addItem()">
+      <div>
+      <h2>Name</h2><input ng-model="newItemName" type="text" size="30" placeholder=" eg: Derek Zoolander">
+      </div>
+      <div>
+      <h2>Topic</h2><input ng-model="newItemTopic" type="text" size="30" placeholder=" eg: Controllers in AngularJS">
+      </div>
+      <div>
+      <h2>Time</h2><input ng-model="newItemTime" type="text" size="1" placeholder=" 5"> minutes
+      </div>
+      <input type="submit" value="Submit" />
+    </form>
+  </div>
+  
+  <div id="right">
+
+    <table>
+    <tr>
+      <th>Name</th>
+      <th>Topic</th>
+      <th>Estimated Time</th>
+      <th>Done?</th>
+    </tr>
+    <tr ng-repeat="item in items">
+      <td>{{item.name}}</td>
+      <td>{{item.topic}}</td>
+      <td>{{item.time}}</td>
+      <td><input type="checkbox" ng-model="item.done" ng-checked="removeItem()"></td>
+    </tr>
+    </table>
+  
+  </div>
+
+</div>
+
+</body>
+</html>

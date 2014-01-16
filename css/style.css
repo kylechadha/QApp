@@ -1,0 +1,70 @@
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+#header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+h1 {
+  font-size: 84px;
+  margin: 10px 0;
+}
+
+h2 {
+  font-size: 12px;
+  font-weight: normal;
+  margin: 5px 0;
+}
+
+h2 span {
+  color: tomato;
+  font-weight: bold;
+}
+
+#left {
+  width: 300px;
+  float: left;
+  color: white;
+  background-color: tomato;
+  border-radius: 5px;
+  margin: 0 50px;
+  padding: 29px;
+}
+
+#left h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+input[type=text] {
+  margin: 5px 0 15px 0;
+  padding: 5px;
+  border: none;
+  border-radius: 2px;
+}
+
+input[type=submit] {
+  border: none;
+  padding: 5px;
+  background-color: #FFAA9A;
+  color: white;
+}
+
+#right {
+  border: 4px dotted steelblue;
+  float: right;
+  margin: 0 50px;
+  padding: 25px;
+  width: 50%;
+}
+
+table {
+  width: 100%;
+}
+
+td {
+  padding: 5px 20px;
+}
