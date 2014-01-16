@@ -1,6 +1,6 @@
 function QappCtrl ($scope) {
   $scope.items = [
-    {name: "Kyle", topic: "Controllers in AngularJS", time: "25 minutes"},
+    {name: "Kyle", topic: "Controllers in Angular", time: "25 minutes"},
     {name: "Johnny", topic: "CSS relative positioning", time: "10 minutes"},
     {name: "Kate", topic: "Implementing game logic in Angular", time: "35 minutes"}, 
   ]

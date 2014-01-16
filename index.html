@@ -32,7 +32,7 @@
   
   <div id="right">
 
-    <table>
+    <table cellspacing="0">
     <tr>
       <th>Name</th>
       <th>Topic</th>
@@ -42,8 +42,8 @@
     <tr ng-repeat="item in items">
       <td>{{item.name}}</td>
       <td>{{item.topic}}</td>
-      <td>{{item.time}}</td>
-      <td><input type="checkbox" ng-model="item.done" ng-checked="removeItem()"></td>
+      <td class="centered">{{item.time}}</td>
+      <td class="centered"><input type="checkbox" ng-model="item.done" ng-checked="removeItem()"></td>
     </tr>
     </table>
   

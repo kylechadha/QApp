@@ -75,6 +75,18 @@ table {
   width: 100%;
 }
 
+tr:nth-child(even) {
+  background-color: #80BBCF;
+}
+
+th {
+  /*height: 30px;*/
+}
+
 td {
   padding: 5px 20px;
+}
+
+.centered {
+  text-align: center;
 }
