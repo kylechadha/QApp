@@ -4,7 +4,11 @@ body {
 
 #header {
   text-align: center;
+  width: 21%;
+  margin-left: 50px;
   margin-bottom: 40px;
+  padding: 0 29px;
+  float: left;
 }
 
 h1 {
@@ -23,11 +27,36 @@ h2 span {
   font-weight: bold;
 }
 
+#current {
+  width: 57%;
+  float: left;
+  background-color: #FFAA9A;
+  border-radius: 5px;
+  color: white;
+  margin: 0 50px;
+  padding: 25px;
+}
+
+#box {
+  width: 100px;
+  height: 100px;
+  background-color: tomato;
+  border-radius: 4px;
+  text-align: center;
+}
+
+#box h3 {
+  font-size: 16px;
+  padding: 30px 0;
+  margin: 0;
+}
+
 #left {
   width: 21%;
   float: left;
+  clear: left;
   color: white;
-  background-color: tomato;
+  background-color: #63B4CF;
   border-radius: 5px;
   margin: 0 0 0 50px;
   padding: 29px;
@@ -51,27 +80,31 @@ input[type=submit] {
   padding: 5px 10px;
   font-size: 15px;
   font-weight: bold;
-  background-color: #FFAA9A;
+  background-color: #80BBCF;
   color: white;
   border-radius: 2px;
-  box-shadow: 3px 4px 0px 0 #BF6858;
+  box-shadow: 3px 4px 0px 0 #31849F;
 }
 
 input[type=submit]:hover {
-  background-color: #A62D17;
+  background-color: #396878;
 }
 
 input[type=submit]:active {
-  background-color: #BF6858;
+  background-color: #105268;
+}
+
+::-webkit-input-placeholder {
+  color: #31849F;
 }
 
 #right {
-  width: 59%;
-  float: right;
-  background-color: #63B4CF;
+  width: 57%;
+  float: left;
+  background-color: #CBF493;
   border-radius: 5px;
-  color: white;
-  margin: 0 50px 0 0;
+  color: rgb(50,50,50);
+  margin: 0 50px;
   padding: 25px;
 }
 
@@ -80,7 +113,7 @@ table {
 }
 
 tr:nth-child(even) {
-  background-color: #80BBCF;
+  background-color: #BDF470;
 }
 
 th {
