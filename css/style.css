@@ -37,12 +37,18 @@ h2 span {
   padding: 25px;
 }
 
+#current span {
+  margin: 0 20px;
+  font-size: 38px;
+}
+
 #box {
   width: 100px;
   height: 100px;
   background-color: tomato;
   border-radius: 4px;
   text-align: center;
+  display: inline-block;
 }
 
 #box h3 {
@@ -58,7 +64,7 @@ h2 span {
   color: white;
   background-color: #63B4CF;
   border-radius: 5px;
-  margin: 0 0 0 50px;
+  margin-left: 50px;
   padding: 29px;
 }
 

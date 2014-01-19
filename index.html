@@ -18,9 +18,7 @@
 
   <div id="current">
     <div id="box"><h3>CURRENT<br>TOPIC</h3></div>
-    <div>
-      
-    </div>
+    <span>{{items[0].topic}}</span>
   </div>
 
   <div id="left">
@@ -32,7 +30,7 @@
       <h2>Topic</h2><input ng-model="newItemTopic" type="text" size="30" placeholder=" eg: Modeling for abo-digitals">
       </div>
       <div>
-      <h2>Time</h2><input ng-model="newItemTime" type="text" size="1" placeholder=" 5"> minutes
+      <h2>Time</h2><input ng-model="newItemTime" type="text" size="1" placeholder=" ?"> minutes
       </div>
       <input type="submit" value="SUBMIT" />
     </form>
@@ -58,6 +56,5 @@
   </div>
 
 </div>
-
 </body>
 </html>
