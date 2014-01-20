@@ -10,7 +10,7 @@
   <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 </head>
 
-<body ng-controller="QappCtrl" ng-init="counter=0">
+<body ng-controller="QappCtrl">
 <div id="main">
   <div id="header">
     <h1>QApp</h1>
@@ -35,7 +35,7 @@
       <div>
         <h2>Time</h2><input ng-model="newItemTime" type="text" size="1" placeholder=" ?"> minutes
       </div>
-      <input type="submit" value="SUBMIT" />
+      <input type="submit" value="SUBMIT">
       <span>{{errorMessage}}</span>
     </form>
   </div>
@@ -44,15 +44,15 @@
 
     <table cellspacing="0">
     <tr>
-      <th>#</th>
+      <th ng-click="predicate = 'items.indexOf(item)'; reverse = false; arrow = false; counter = 0"><span>#&nbsp<i class="fa fa-angle-down"></i></span></th>
       <th>Name</th>
       <th>Topic</th>
-      <th ng-click="predicate = 'time'; reverse = !reverse; arrow = !arrow; counter = counter + 1"><span>Estimated Time&nbsp&nbsp<i ng-class="{'fa': true, 'fa-sort': counter == 0, 'fa-sort-asc': arrow, 'fa-sort-desc': !arrow && counter > 0}"></i></span></th>
+      <th ng-click="predicate = 'time'; reverse = !reverse; arrow = !arrow; counter = counter + 1"><span>Estimated Time&nbsp&nbsp<i ng-class="{'fa': true, 'fa-sort': counter == 0, 'fa-caret-down': arrow && counter > 0, 'fa-sort-desc': !arrow && counter > 0}"></i></span></th>
       <th>Done?</th>
     </tr>
 
-    <tr ng-repeat="item in items | orderBy:predicate:!reverse">
-      <td class="centered">{{$index + 1}}</td>
+    <tr ng-repeat="item in items | orderBy: predicate: !reverse">
+      <td class="centered">{{items.indexOf(item) + 1}}</td>
       <td>{{item.name}}</td>
       <td>{{item.topic}}</td>
       <td class="centered">{{item.time}}</td>

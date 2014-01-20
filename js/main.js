@@ -38,12 +38,5 @@ function QappCtrl ($scope) {
     })
   }
 
-  $scope.icon = "&#xf0ab;"
-  // $scope.icon = function() {
-  //   if (arrow == true) {
-  //     return "&#xf0ab;"
-  //   } else {
-  //     return "&#xf0aa;"
-  //   }
-  // }
+  $scope.counter = 0
 }
