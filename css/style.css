@@ -31,7 +31,7 @@ h2 span {
   width: 61%;
   text-align: center;
   float: left;
-  margin: 20px 50px;
+  margin: 25px 50px;
 }
 
 #inner {
@@ -39,7 +39,7 @@ h2 span {
   background-color: #CBF493;
   border-radius: 5px;
   color: rgb(50,50,50);
-  padding: 15px 25px;
+  padding: 15px 16px;
   margin: 0 auto;
 }
 
@@ -142,7 +142,13 @@ tr:nth-child(even) {
 }
 
 th {
-  /*height: 30px;*/
+  font-size: 17px;
+  font-weight: normal;
+  padding-bottom: 5px;
+}
+
+th span {
+  cursor: pointer;
 }
 
 td {

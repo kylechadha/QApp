@@ -29,7 +29,7 @@ function QappCtrl ($scope) {
       $scope.errorMessage = ""
     }
   }
-  
+
   $scope.removeItem = function() {
     var placeHolder = $scope.items;
     $scope.items = [];
@@ -37,4 +37,13 @@ function QappCtrl ($scope) {
       if (!item.done) $scope.items.push(item);
     })
   }
+
+  $scope.icon = "&#xf0ab;"
+  // $scope.icon = function() {
+  //   if (arrow == true) {
+  //     return "&#xf0ab;"
+  //   } else {
+  //     return "&#xf0aa;"
+  //   }
+  // }
 }
