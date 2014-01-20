@@ -15,24 +15,27 @@
     <h1>QApp</h1>
     <h2>a general assembly <span>Class 3</span> production</h2>
   </div>
-
+  
   <div id="current">
+  <div id="inner">
     <div id="box"><h3>CURRENT<br>TOPIC</h3></div>
     <span>{{items[0].topic}}</span>
+  </div>
   </div>
 
   <div id="left">
     <form ng-submit="addItem()">
       <div>
-      <h2>Name</h2><input ng-model="newItemName" type="text" size="30" placeholder=" eg: Derek Zoolander">
+        <h2>Name</h2><input ng-model="newItemName" type="text" size="30" placeholder=" eg: Derek Zoolander">
       </div>
       <div>
-      <h2>Topic</h2><input ng-model="newItemTopic" type="text" size="30" placeholder=" eg: Modeling for abo-digitals">
+        <h2>Topic</h2><input ng-model="newItemTopic" type="text" size="30" placeholder=" eg: Modeling for abo-digitals">
       </div>
       <div>
-      <h2>Time</h2><input ng-model="newItemTime" type="text" size="1" placeholder=" ?"> minutes
+        <h2>Time</h2><input ng-model="newItemTime" type="text" size="1" placeholder=" ?"> minutes
       </div>
       <input type="submit" value="SUBMIT" />
+      <span>{{errorMessage}}</span>
     </form>
   </div>
   
