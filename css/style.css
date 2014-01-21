@@ -151,7 +151,7 @@ th {
   font-size: 20px;
   font-weight: normal;
   padding: 0 10px;
-  padding-bottom: 12px;
+  padding-bottom: 15px;
 }
 
 th span {
@@ -160,14 +160,14 @@ th span {
 
 td {
   font-size: 18px;
-  padding: 5px 20px;
+  padding: 10px 20px;
 }
 
 .centered {
   text-align: center;
 }
 
-@media (max-width: 1090px) {
+@media (max-width: 1081px) {
   #header {
     text-align: center;
     width: 500px;

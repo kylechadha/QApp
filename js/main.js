@@ -30,12 +30,9 @@ function QappCtrl ($scope) {
     }
   }
 
-  $scope.removeItem = function() {
-    var placeHolder = $scope.items;
-    $scope.items = [];
-    angular.forEach(placeHolder, function(item) {
-      if (!item.done) $scope.items.push(item);
-    })
+  $scope.removeItem = function(item) {
+    var itemIndex = $scope.items.indexOf(item);
+    $scope.items.splice(itemIndex,1);
   }
 
   $scope.counter = 0
