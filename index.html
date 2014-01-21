@@ -27,13 +27,13 @@
   <div id="left">
     <form ng-submit="addItem()">
       <div>
-        <h2>Name</h2><input ng-model="newItemName" type="text" size="30" placeholder=" eg: Derek Zoolander">
+        <h2>Name</h2><input ng-model="newItemName" type="text" placeholder=" eg: Derek Zoolander">
       </div>
       <div>
-        <h2>Topic</h2><input ng-model="newItemTopic" type="text" size="30" placeholder=" eg: Modeling for abo-digitals">
+        <h2>Topic</h2><input ng-model="newItemTopic" type="text" placeholder=" eg: Modeling for abo-digitals">
       </div>
       <div>
-        <h2>Time</h2><input ng-model="newItemTime" type="text" size="1" placeholder=" ?"> minutes
+        <h2>Time</h2><input id="minutes" ng-model="newItemTime" type="text" placeholder=" ?"> minutes
       </div>
       <input type="submit" value="SUBMIT">
       <span>{{errorMessage}}</span>
@@ -47,7 +47,7 @@
       <th ng-click="predicate = 'items.indexOf(item)'; reverse = false; arrow = false; counter = 0"><span>#&nbsp<i class="fa fa-angle-down"></i></span></th>
       <th>Name</th>
       <th>Topic</th>
-      <th ng-click="predicate = 'time'; reverse = !reverse; arrow = !arrow; counter = counter + 1"><span>Estimated Time&nbsp&nbsp<i ng-class="{'fa': true, 'fa-sort': counter == 0, 'fa-caret-down': arrow && counter > 0, 'fa-sort-desc': !arrow && counter > 0}"></i></span></th>
+      <th ng-click="predicate = 'time'; reverse = !reverse; arrow = !arrow; counter = counter + 1"><span>Est. Time&nbsp&nbsp<i ng-class="{'fa': true, 'fa-sort': counter == 0, 'fa-caret-down': arrow && counter > 0, 'fa-sort-desc': !arrow && counter > 0}"></i></span></th>
       <th>Done?</th>
     </tr>
 

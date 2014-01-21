@@ -36,24 +36,25 @@ h2 span {
 
 #inner {
   display: inline-block;
-  background-color: #CBF493;
-  border-radius: 5px;
+  /*background-color: #CBF493;*/
+  /*border-radius: 5px;*/
   color: rgb(50,50,50);
   padding: 15px 16px;
-  margin: 0 auto;
 }
 
 #inner span {
   margin: 0 20px;
   font-size: 34px;
+  text-transform: capitalize;
   vertical-align: text-bottom;
 }
 
 #box {
   width: 100px;
   height: 70px;
-  background-color: #BDF470;
+  background-color: #FF7255;
   border-radius: 4px;
+  color: white;
   text-align: center;
   display: inline-block;
 }
@@ -76,24 +77,28 @@ h2 span {
 }
 
 #left h2 {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 20px;
   margin: 0;
 }
 
 #left span {
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 14px;
   color: white;
-  margin: 5px;
+  margin: 8px 0 0 5px;
   display: block;
 }
 
 input[type=text] {
+  width: 240px;
+  font-size: 16px;
   margin: 5px 0 15px 0;
   padding: 5px;
   border: none;
   border-radius: 2px;
+}
+
+#minutes {
+  width: 25px;
 }
 
 input[type=submit] {
@@ -143,9 +148,10 @@ tr:nth-child(even) {
 }
 
 th {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: normal;
-  padding-bottom: 5px;
+  padding: 0 10px;
+  padding-bottom: 12px;
 }
 
 th span {
@@ -153,9 +159,70 @@ th span {
 }
 
 td {
+  font-size: 18px;
   padding: 5px 20px;
 }
 
 .centered {
   text-align: center;
+}
+
+@media (max-width: 1090px) {
+  #header {
+    text-align: center;
+    width: 500px;
+    margin: 20px 50px;
+    padding: 0 25px;
+  }
+
+  #header h1, h2 {
+    margin: 0;
+    padding: 0;
+  }
+
+  #current {
+    display: none;
+  }
+
+  #left {
+    width: 500px;
+    border-radius: 5px;
+    margin: 20px 50px;
+    padding: 25px;
+  }
+
+  #left h2 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  #left span {
+    font-size: 13px;
+    color: white;
+    margin: 5px;
+    display: block;
+  }
+
+  input[type=text] {
+    font-size: 16px;
+  }
+
+  input[type=submit] {
+    font-size: 16px;
+  }
+
+  #right {
+    width: 500px;
+    margin: 20px 50px;
+    padding: 25px;
+  }
+
+  th {
+    font-size: 20px;
+  }
+
+  td {
+    font-size: 18px;
+  }
+
 }
