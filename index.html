@@ -35,7 +35,7 @@
       <div>
         <h2>Time</h2><input id="minutes" ng-model="newItemTime" type="text" placeholder=" ?"> minutes
       </div>
-      <input type="submit" value="SUBMIT">
+      <input type="submit" value="SUBMIT" ng-click="timeCalc()">
       <span>{{errorMessage}}</span>
     </form>
   </div>
@@ -52,10 +52,11 @@
       <th>Name</th>
       <th>Topic</th>
       <th ng-click="predicate = '-time'; reverse = !reverse; arrow = !arrow; counter = counter + 1">
-        <span>Est. Time&nbsp&nbsp
+        <span>Duration&nbsp&nbsp
           <i ng-class="{'fa': true, 'fa-sort': counter == 0, 'fa-caret-down': arrow && counter > 0, 'fa-sort-desc': !arrow && counter > 0}"></i>
         </span>
       </th>
+      <th>Est. Start Time</th>
       <th>Done?</th>
     </tr>
 
@@ -63,7 +64,8 @@
       <td class="centered">{{items.indexOf(item) + 1}}</td>
       <td>{{item.name}}</td>
       <td>{{item.topic}}</td>
-      <td class="centered">{{item.time}}</td>
+      <td class="centered">{{item.time}} minutes</td>
+      <td class="centered">{{item.estimated}}</td>
       <td class="centered"><i ng-click="removeItem(item)" class="fa fa-times"></i></td>
     </tr>
     </table>

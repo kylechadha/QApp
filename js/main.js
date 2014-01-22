@@ -3,9 +3,7 @@
 
 function QappCtrl ($scope) {
   $scope.items = [
-    {name: "Kyle", topic: "Controllers in Angular", time: "25 minutes"},
-    {name: "Arya", topic: "CSS relative positioning", time: "10 minutes"},
-    {name: "Eva", topic: "Implementing game logic in Angular", time: "35 minutes"}, 
+
   ]
 
   $scope.newItemName = ""
@@ -21,13 +19,44 @@ function QappCtrl ($scope) {
         $scope.newItemName = "";
         $scope.newItemTopic = "";
       } else {
-        $scope.items.push({name: $scope.newItemName, topic: $scope.newItemTopic, time: $scope.newItemTime + " minutes"})
+        $scope.items.push({name: $scope.newItemName, topic: $scope.newItemTopic, time: $scope.newItemTime, estimated: $scope.timeCalc()})
         $scope.newItemName = "";
         $scope.newItemTopic = "";
         $scope.newItemTime = "";
       }
       $scope.errorMessage = ""
     }
+  }
+
+  $scope.timeCalc = function() {
+    if ($scope.items.length == 0) {
+      var date = new Date, 
+      hour = date.getHours(),
+      min = date.getMinutes();
+
+      $scope.estTime = "Active";
+      finishTime = $scope.newItemTime + min;
+
+      return $scope.estTime;
+    } else {
+      $scope.estTime = finishTime;
+      finishTime += $scope.newItemTime;
+      return $scope.timeClean($scope.estTime, hour);
+    }
+  }
+
+  $scope.timeClean = function(min, hour) {
+    console.log(min + " " + hour)
+    hour += Math.floor(min / 60);
+    min = min % 60;
+
+    var ampm = hour > 12 ? "PM" : "AM";
+    hour = hour % 12;
+    hour = hour ? hour : 12; // zero = 12
+    min = min > 9 ? min : "0" + min;
+    $scope.estTime = hour + ":" + min + " " + ampm;
+
+    return $scope.estTime;
   }
 
   $scope.removeItem = function(item) {
