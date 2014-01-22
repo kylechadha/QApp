@@ -167,7 +167,7 @@ td {
   text-align: center;
 }
 
-@media (max-width: 1081px) {
+@media (max-width: 600px) {
   #header {
     text-align: center;
     width: 500px;
