@@ -31,12 +31,23 @@ app.controller("QappCtrl", function($scope, $firebase) {
   $scope.newItemName = ""
   $scope.newItemTopic = ""
   $scope.addItem = function() {
+    if ($scope.newItemLR) {
+      $scope.newItemLR = "LR"
+    }
+    if ($scope.newItemCD) {
+      $scope.newItemCD = "CD"
+    } 
+    if ($scope.newItemEC) {
+      $scope.newItemEC = "EC"
+    }
+
     if ($scope.newItemName == "" || $scope.newItemTopic == "") {
       $scope.errorMessage = "Whoops! Please include your name and the topic  :]"
     }
     else {
-      $scope.db.items.push({name: $scope.newItemName, topic: $scope.newItemTopic})
+      $scope.db.items.push({name: $scope.newItemName, topic: $scope.newItemTopic, review: $scope.newItemLR, debug: $scope.newItemCD, extra: $scope.newItemEC})
       $scope.db.$save();
+
       $scope.newItemName = "";
       $scope.newItemTopic = "";
       $scope.errorMessage = ""

@@ -1,3 +1,6 @@
+/*Questions
+*/
+
 body {
   font-family: 'Lato', sans-serif;
 }
@@ -164,6 +167,12 @@ th span {
   cursor: pointer;
 }
 
+#category {
+  padding: 0 0 15px 0;
+}
+
+/*Add a minimum width for Topic*/
+
 td {
   font-size: 16px;
   padding: 10px 20px;
@@ -171,6 +180,13 @@ td {
 
 .centered {
   text-align: center;
+}
+
+.category {
+  padding: 0;
+  text-align: center;
+  /*background-color: rgb(75,75,75);*/
+  /*border-radius: 4px;*/
 }
 
 @media (max-width: 1081px) {

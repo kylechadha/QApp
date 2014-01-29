@@ -1,7 +1,11 @@
-To Do:
+DONE:
+>>>Add FIREBASE
 >Remove start time
 >Remove est duration
 >Add checkboxes for categories (class review, extracurricular, debug issue) 
+
+To Do:
+>Integrate checkboxes with table, add filters for checkboxes
 >Add +1 so you can see what lots of people are interested in (maybe later feature, more than 2 addtl +1's move an item up in the queue)
 >Change done? to be both a start, and then unclick to remove (or hide)
 
