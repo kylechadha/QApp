@@ -1,13 +1,26 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="Qapp">
 <head>
   <title>QApp</title>
+  <!-- Hi there, I'm QApp - thanks for checking me out! I was made by Kyle Chadha, as part of the Web Development Immersive program at General Assembly LA. Check him out on Git Hub, and may the code live strong :]! -->
+
+  <!-- JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
-  <!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  
+  <!-- Firebase -->
+  <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/0.6.0/angularfire.min.js"></script>
+
+  <!-- Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Lato'>
   <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">
-  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+  <!-- CSS -->
+  <!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
+  <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body ng-controller="QappCtrl">
@@ -20,7 +33,7 @@
   <div id="current">
   <div id="inner">
     <div id="box"><h3>CURRENT<br>TOPIC</h3></div>
-    <span>{{items[0].topic}}</span>
+    <span>{{db.items[0].topic}}</span>
   </div>
   </div>
 
@@ -44,7 +57,7 @@
 
     <table cellspacing="0">
     <tr>
-      <th ng-click="predicate = 'items.indexOf(item)'; reverse = false; arrow = false; counter = 0">
+      <th ng-click="predicate = 'db.items.indexOf(item)'; reverse = false; arrow = false; counter = 0">
         <span>#
           <i class="fa fa-angle-down"></i>
         </span>
@@ -60,8 +73,8 @@
       <th>Done?</th>
     </tr>
 
-    <tr ng-repeat="item in items | orderBy: predicate: reverse">
-      <td class="centered">{{items.indexOf(item) + 1}}</td>
+    <tr ng-repeat="item in db.items | orderBy: predicate: reverse">
+      <td class="centered">{{db.items.indexOf(item) + 1}}</td>
       <td>{{item.name}}</td>
       <td style="max-width: 200px">{{item.topic}}</td>
       <td class="centered">{{item.duration}} minutes</td>

@@ -1,9 +1,32 @@
 //Questions
 //1. Why do I have to set newItemName and newItemTopic to "" in order for the error message to be generated the first time around? Shouldn't they already equal ""? Or should I test for "null" in my if statement?
+//2. If everything in the queue gets deleted out, you can no longer add items back in because the entire DB gets set to null -- why?!
 
-function QappCtrl ($scope) {
-  $scope.items = [
-  ]
+var app = angular.module("Qapp", ["firebase"])
+app.controller("QappCtrl", function($scope, $firebase) {
+
+  qappRef = new Firebase("https://qapp.firebaseio.com/");
+  $scope.fbRoot = $firebase(qappRef);
+
+  var IDs;
+  $scope.fbRoot.$on("loaded", function() {
+    IDs = $scope.fbRoot.$getIndex();
+
+    if (IDs.length == 0) {
+      $scope.fbRoot.$add( {
+        items: [
+          {name: 'QApp', topic: 'Add something, then clear me :]', duration: 15, estimated: '9:45 PM'}
+          ]
+      });
+      $scope.fbRoot.$on("change", function() {
+        IDs = $scope.fbRoot.$getIndex();
+        $scope.db = $scope.fbRoot.$child(IDs[0]);
+      });
+    } else {
+      $scope.db = $scope.fbRoot.$child(IDs[0]);
+    };
+
+  });
 
   $scope.newItemName = ""
   $scope.newItemTopic = ""
@@ -15,10 +38,11 @@ function QappCtrl ($scope) {
     else {
       if ($scope.newItemTime == "") {
         $scope.newItemTime = 15;
-        $scope.items.push({name: $scope.newItemName, topic: $scope.newItemTopic, duration: $scope.newItemTime, estimated: $scope.timeCalc()})
+        $scope.db.items.push({name: $scope.newItemName, topic: $scope.newItemTopic, duration: $scope.newItemTime, estimated: $scope.timeCalc()})
       } else {
-        $scope.items.push({name: $scope.newItemName, topic: $scope.newItemTopic, duration: $scope.newItemTime, estimated: $scope.timeCalc()})
+        $scope.db.items.push({name: $scope.newItemName, topic: $scope.newItemTopic, duration: $scope.newItemTime, estimated: $scope.timeCalc()})
       }
+      $scope.db.$save();
       $scope.newItemName = "";
       $scope.newItemTopic = "";
       $scope.newItemTime = "";
@@ -32,7 +56,7 @@ function QappCtrl ($scope) {
   var min = 0;
 
   $scope.timeCalc = function() {
-    if ($scope.items.length == 0) {
+    if ($scope.db.items.length == 0) {
       hour = date.getHours();
       min = date.getMinutes();
 
@@ -53,14 +77,14 @@ function QappCtrl ($scope) {
     hour = date.getHours();
     min = date.getMinutes();
 
-    $scope.items[0].estimated = "Active"
+    $scope.db.items[0].estimated = "Active"
 
-    for (i = 0; i < $scope.items.length; i++) {
-      finishTime = parseInt($scope.items[i].duration) + parseInt(min);
-      $scope.items[i+1].estimated = $scope.timeClean(finishTime, hour);
+    for (i = 0; i < $scope.db.items.length; i++) {
+      finishTime = parseInt($scope.db.items[i].duration) + parseInt(min);
+      $scope.db.items[i+1].estimated = $scope.timeClean(finishTime, hour);
 
-      console.log($scope.items[i].estimated);
-      console.log($scope.items[i].duration);
+      console.log($scope.db.items[i].estimated);
+      console.log($scope.db.items[i].duration);
     }
   }
 
@@ -78,10 +102,12 @@ function QappCtrl ($scope) {
   }
 
   $scope.removeItem = function(item) {
-    var itemIndex = $scope.items.indexOf(item);
-    $scope.items.splice(itemIndex,1);
+    var itemIndex = $scope.db.items.indexOf(item);
+    $scope.db.items.splice(itemIndex,1);
     $scope.timeCalc();
+    $scope.db.$save();
   }
 
   $scope.counter = 0
-}
+
+});
