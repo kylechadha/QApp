@@ -3,7 +3,6 @@
 
 function QappCtrl ($scope) {
   $scope.items = [
-
   ]
 
   $scope.newItemName = ""
@@ -15,38 +14,57 @@ function QappCtrl ($scope) {
     }
     else {
       if ($scope.newItemTime == "") {
-        $scope.items.push({name: $scope.newItemName, topic: $scope.newItemTopic, time: "Unestimated"})
-        $scope.newItemName = "";
-        $scope.newItemTopic = "";
+        $scope.newItemTime = 15;
+        $scope.items.push({name: $scope.newItemName, topic: $scope.newItemTopic, duration: $scope.newItemTime, estimated: $scope.timeCalc()})
       } else {
-        $scope.items.push({name: $scope.newItemName, topic: $scope.newItemTopic, time: $scope.newItemTime, estimated: $scope.timeCalc()})
-        $scope.newItemName = "";
-        $scope.newItemTopic = "";
-        $scope.newItemTime = "";
+        $scope.items.push({name: $scope.newItemName, topic: $scope.newItemTopic, duration: $scope.newItemTime, estimated: $scope.timeCalc()})
       }
+      $scope.newItemName = "";
+      $scope.newItemTopic = "";
+      $scope.newItemTime = "";
       $scope.errorMessage = ""
     }
   }
 
+  var finishTime = 0;
+  var date = new Date;
+  var hour = 0;
+  var min = 0;
+
   $scope.timeCalc = function() {
     if ($scope.items.length == 0) {
-      var date = new Date, 
-      hour = date.getHours(),
+      hour = date.getHours();
       min = date.getMinutes();
 
       $scope.estTime = "Active";
-      finishTime = $scope.newItemTime + min;
+      finishTime = parseInt($scope.newItemTime) + parseInt(min);
 
       return $scope.estTime;
     } else {
+      
       $scope.estTime = finishTime;
-      finishTime += $scope.newItemTime;
+      finishTime += parseInt($scope.newItemTime);
       return $scope.timeClean($scope.estTime, hour);
     }
   }
 
+  $scope.timeUpdate = function() {
+    date = new Date;
+    hour = date.getHours();
+    min = date.getMinutes();
+
+    $scope.items[0].estimated = "Active"
+
+    for (i = 0; i < $scope.items.length; i++) {
+      finishTime = parseInt($scope.items[i].duration) + parseInt(min);
+      $scope.items[i+1].estimated = $scope.timeClean(finishTime, hour);
+
+      console.log($scope.items[i].estimated);
+      console.log($scope.items[i].duration);
+    }
+  }
+
   $scope.timeClean = function(min, hour) {
-    console.log(min + " " + hour)
     hour += Math.floor(min / 60);
     min = min % 60;
 
@@ -62,6 +80,7 @@ function QappCtrl ($scope) {
   $scope.removeItem = function(item) {
     var itemIndex = $scope.items.indexOf(item);
     $scope.items.splice(itemIndex,1);
+    $scope.timeCalc();
   }
 
   $scope.counter = 0

@@ -38,6 +38,7 @@ h2 span {
   display: inline-block;
   /*background-color: #CBF493;*/
   /*border-radius: 5px;*/
+  width: 100%;
   color: rgb(50,50,50);
   padding: 15px 16px;
 }
@@ -148,7 +149,7 @@ tr:nth-child(even) {
 }
 
 th {
-  font-size: 20px;
+  font-size: 19px;
   font-weight: normal;
   padding: 0 10px;
   padding-bottom: 15px;
@@ -159,7 +160,7 @@ th span {
 }
 
 td {
-  font-size: 18px;
+  font-size: 16px;
   padding: 10px 20px;
 }
 
@@ -167,7 +168,7 @@ td {
   text-align: center;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1081px) {
   #header {
     text-align: center;
     width: 500px;
