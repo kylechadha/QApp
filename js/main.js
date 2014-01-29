@@ -15,7 +15,7 @@ app.controller("QappCtrl", function($scope, $firebase) {
     if (IDs.length == 0) {
       $scope.fbRoot.$add( {
         items: [
-          {name: 'QApp', topic: 'Add something, then clear me!'}
+          {name: 'QApp', topic: "Add something, then clear me!"}
           ]
       });
       $scope.fbRoot.$on("change", function() {
