@@ -1,4 +1,5 @@
 QApp
+=====================
 
 Hi there, this repo is for QApp, a small app which helps track who's next in line (in the queue) for office hours.
 
