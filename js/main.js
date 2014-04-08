@@ -1,6 +1,3 @@
-//Questions
-//1. Why do I have to set newItemName and newItemTopic to "" in order for the error message to be generated the first time around? Shouldn't they already equal ""? Or should I test for "null" in my if statement?
-//2. If everything in the queue gets deleted out, you can no longer add items back in because the entire DB gets set to null -- why?!
 
 var app = angular.module("Qapp", ["firebase"])
 app.controller("QappCtrl", function($scope, $firebase) {

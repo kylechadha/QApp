@@ -18,74 +18,74 @@
   <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">
 
   <!-- CSS -->
-  <!-- <link rel="stylesheet" type="text/css" href="css/normalize.css"> -->
   <link rel="stylesheet" type="text/css" href="css/animate.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body ng-controller="QappCtrl">
-<div id="main">
-  <div id="header">
-    <h1>QApp</h1>
-    <h2>a general assembly <span>Class 3</span> production</h2>
-  </div>
-  
-  <div id="current">
-  <div id="inner">
-    <div id="box"><h3>CURRENT<br>TOPIC</h3></div>
-    <span>{{db.items[0].topic}}</span>
-  </div>
+
+  <div id="main">
+
+    <div id="header">
+      <h1>QApp</h1>
+      <h2>a general assembly <span>Class 3</span> production</h2>
+    </div>
+    
+    <div id="current">
+    <div id="inner">
+      <div id="box"><h3>CURRENT<br>TOPIC</h3></div>
+      <span>{{db.items[0].topic}}</span>
+    </div>
+    </div>
+
+    <div id="left">
+      <form ng-submit="addItem()">
+        <div>
+          <h2>Name</h2>
+          <input ng-model="newItemName" type="text" placeholder=" eg: Derek Zoolander">
+        </div>
+        <div>
+          <h2>Topic</h2>
+          <input ng-model="newItemTopic" type="text" placeholder=" eg: Modeling for abo-digitals">
+        </div>
+        <div>
+          <h2>Category</h2>
+          <input type="checkbox" ng-model="newItemLR" id="lecture"><label for="lecture">Lecture Review (LR)</label><br>
+          <input type="checkbox" ng-model="newItemCD" id="debug"><label for="debug">Code Debug (CD)</label><br>
+          <input type="checkbox" ng-model="newItemEC" id="extra"><label for="extra">Extracurricular (EC)</label>
+        </div>
+        <input type="submit" value="SUBMIT">
+        <span>{{errorMessage}}</span>
+      </form>
+    </div>
+    
+    <div id="right">
+      <table cellspacing="0">
+        <tr>
+          <th ng-click="predicate = 'db.items.indexOf(item)'; reverse = false;">
+            <span>#
+              <i class="fa fa-angle-down"></i>
+            </span>
+          </th>
+          <th>Name</th>
+          <th>Topic</th>
+          <th colspan="3" id="category">Category</th>
+          <th>Done?</th>
+        </tr>
+
+        <tr ng-repeat="item in db.items | orderBy: predicate: reverse">
+          <td class="centered">{{db.items.indexOf(item) + 1}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.topic}}</td>
+          <td class="category">{{item.review}}</td>
+          <td class="category">{{item.debug}}</td>
+          <td class="category">{{item.extra}}</td>
+          <td class="centered"><i ng-click="removeItem(item)" class="fa fa-times"></i></td>
+        </tr>
+      </table>
+    </div>
+    
   </div>
 
-  <div id="left">
-    <form ng-submit="addItem()">
-      <div>
-        <h2>Name</h2>
-        <input ng-model="newItemName" type="text" placeholder=" eg: Derek Zoolander">
-      </div>
-      <div>
-        <h2>Topic</h2>
-        <input ng-model="newItemTopic" type="text" placeholder=" eg: Modeling for abo-digitals">
-      </div>
-      <div>
-        <h2>Category</h2>
-        <input type="checkbox" ng-model="newItemLR" id="lecture"><label for="lecture">Lecture Review (LR)</label><br>
-        <input type="checkbox" ng-model="newItemCD" id="debug"><label for="debug">Code Debug (CD)</label><br>
-        <input type="checkbox" ng-model="newItemEC" id="extra"><label for="extra">Extracurricular (EC)</label>
-      </div>
-      <input type="submit" value="SUBMIT">
-      <span>{{errorMessage}}</span>
-    </form>
-  </div>
-  
-  <div id="right">
-
-    <table cellspacing="0">
-    <tr>
-      <th ng-click="predicate = 'db.items.indexOf(item)'; reverse = false;">
-        <span>#
-          <i class="fa fa-angle-down"></i>
-        </span>
-      </th>
-      <th>Name</th>
-      <th>Topic</th>
-      <th colspan="3" id="category">Category</th>
-      <th>Done?</th>
-    </tr>
-
-    <tr ng-repeat="item in db.items | orderBy: predicate: reverse">
-      <td class="centered">{{db.items.indexOf(item) + 1}}</td>
-      <td>{{item.name}}</td>
-      <td>{{item.topic}}</td>
-      <td class="category">{{item.review}}</td>
-      <td class="category">{{item.debug}}</td>
-      <td class="category">{{item.extra}}</td>
-      <td class="centered"><i ng-click="removeItem(item)" class="fa fa-times"></i></td>
-    </tr>
-    </table>
-  
-  </div>
-
-</div>
 </body>
 </html>
